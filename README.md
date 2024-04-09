@@ -1,17 +1,15 @@
 
-# Template Repository - Shifting Security Left a Hands On Workshop
+# Introduction to DevSecOps
 
-The following repository contains training material workshops on shifting security left.
+The following repository contains training material on DevSecOps.
 
-This workshop is held at venue `X` on `DATE` at `TIME`.
+This workshop is held at BSides PR  on Aril 13th at 10am. The workshop runs for approximatley 2 hours. 
 
 ## Workshop Outline
 
-*Shifting Security Left a Hands On Workshop* provides participants with an introduction to baking security into the software development process and leveraging DevSecOps tooling to support this. 
+The *Introduction to DevSecOps Workshop* provides BSides PR participants with an introduction to DevSecOps using GitHub and open source tools.
 
-Attendees will learn about setting up a local development environment which includes security tools such as IDE plugins. Students will then progress into learning how to use DevSecOps pipelines to detect security issues such as accidentally committed secrets.
-
-The workshop will then wrap up with tips on how to handle secure deployments and a look to what the future holds in this space.
+Attendees will learn about setting up a local development environment including pre-commit hooks and other preventative measures. Students will then progress into building out a simple CI/CD pipeline that uses free and open source tooling.
 
 ## Pre-setup Phase
 
@@ -23,10 +21,7 @@ Students will be able to sign up for a .edu account which comes with some added 
 
 Once your account is setup, you will need to `Fork` and `Clone` this repository.
 
-A full guide to setting up the tooling for this workshop can be found in the Part 1 README file.
-
-[Part 1 - Security within the development environment](https://github.com/tweag/dev-sec-ops-workshop/tree/main/part1#part-1---security-within-the-development-environment)
-
+A full guide to setting up the tooling for this workshop can be found in the README file accompanying the code.
 
 ## Part 1: Security within the development environment
 
