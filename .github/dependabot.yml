@@ -1,0 +1,6 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/course/src"
+    schedule:
+      interval: "weekly"
