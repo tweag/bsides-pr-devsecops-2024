@@ -1,0 +1,17 @@
+{
+  "name": "vuln-app",
+  "version": "1.0.0",
+  "description": "A vulnerable Node.js application for educational purposes",
+  "main": "vuln.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vulnerability",
+    "owasp",
+    "top10",
+    "example"
+  ],
+  "author": "BillReyor",
+  "license": "ISC"
+}
