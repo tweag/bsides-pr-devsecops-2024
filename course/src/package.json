@@ -15,6 +15,6 @@
   "author": "BillReyor",
   "license": "ISC",
   "dependencies": {
-    "qs": "6.0.4"
+    "qs": "6.2.4"
   }
 }
