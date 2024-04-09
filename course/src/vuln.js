@@ -1,7 +1,6 @@
-// Example: Vuln.js
+// Example: Vuln.js  
 // DISCLAIMER: This code contains intentional security vulnerabilities as examples based on the OWASP Top 10.
 // DO NOT use this code in production or any secure application. 
-// It's for educational purposes only as part of BSides Tampa 2024 workshop
 const net = require('node:net');
 
 class User {
@@ -89,10 +88,9 @@ function startApp() {
 
 
 // Example usage
-const user = new User('tampaadmin', '123456');
-const blogPost = new BlogPost('Vulnerable JavaScript', 'This post details some common vulnerabilities.', 'tampaadmin');
+const user = new User('bsidesadmin', '123456');
+const blogPost = new BlogPost('Vulnerable JavaScript', 'This post details some common vulnerabilities.', 'bsidesadmin');
 BlogPost.saveToDatabase(blogPost);
 const account = new Account(user);
-account.changePassword('tampaadmin', 'newpassword123');
+account.changePassword('bsidesadmin', 'newpassword123');
 authenticateUser('admin', 'admin');
-
