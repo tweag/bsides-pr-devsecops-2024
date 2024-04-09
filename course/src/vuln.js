@@ -1,7 +1,6 @@
 // Example: Vuln.js
 // DISCLAIMER: This code contains intentional security vulnerabilities as examples based on the OWASP Top 10.
 // DO NOT use this code in production or any secure application. 
-// It's for educational purposes only as part of BSides Tampa 2024 workshop
 const net = require('node:net');
 
 class User {
