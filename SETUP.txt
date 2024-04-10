@@ -1,0 +1,51 @@
+Workshop Setup
+--------------
+
+This is a quick setup guide for the BSides PR workshop "Introduction to DevSecOps" on April 13th 2024.
+
+You can use this document to get your development environment configured prior to the event.
+
+The source code and guides for the workshop will be available on the 11th at:
+
+https://github.com/tweag/bsides-pr-devsecops-2024
+
+Account setup and tool installation
+-----------------------------------
+
+To start with, make sure you have a GitHub account: https://www.github.com
+
+Also ensure that Git is installed locally on your machine:
+
+https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+
+Next setup an SSH keys:
+
+Generate a new SSH key pair on your local machine if you don't have one
+> ssh-keygen -t ed25519 -C "your_email@example.com"
+
+Copy the public key file (e.g. id_ed25519.pub) to your clipboard
+> clip < ~/.ssh/id_ed25519.pub    # On Windows
+> pbcopy < ~/.ssh/id_ed25519.pub  # On macOS
+> cat ~/.ssh/id_ed25519.pub       # On Linux, then manually copy
+
+Login to your GitHub account and goto:
+A. Settings -> Access -> SSH & GPG keys -> New SSH key
+B. Enter a title for the key, then paste the public key we generated in step 2.
+
+We will use a number of tools during the workshop, so you can install these in advance.
+
+Recommended IDE: VS Code https://code.visualstudio.com/
+
+Docker: https://www.docker.com/get-started/
+
+Horusec plugin for VS Code: https://docs.horusec.io/docs/extensions/visual-studio-code/
+
+Talisman: https://github.com/thoughtworks/talisman
+
+You may also like to read about .gitignore files in advance:
+
+.gitignore files: https://git-scm.com/docs/gitignore
+
+If you have any questions our team will be walking around the classroom to help you with installation questions and get you unblocked.
+
+Thanks for signing up!
