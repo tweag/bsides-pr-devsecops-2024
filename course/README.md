@@ -335,31 +335,62 @@ https://github.com/ZupIT/horusec
 
 Let's try a quick experiment using the Action from the [market place](https://github.com/marketplace/actions/horusec).
 
-We can copy this into a new YAML file at `.github/workflows/horusec.yml`:
+We have a YAML file located at `.github/workflows/horusec`. Rename this to `.github/workflows/horusec.yml`. Commit and push the change. 
+
+
+This file contains the following config:
 
 ```yaml
-name: Horusec Security Scan
+iname: SecurityPipeline
 
 on: [push]
 
 jobs:
-  horusec-security-scan:
+  horusec-security:
+    name: horusec-security
     runs-on: ubuntu-latest
-    name: Run Horusec Security Scan
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
-
-      - name: Run Horusec Security Scan
-        id: run_horusec
-        uses: fike/horusec-action@v0.2.2
+        uses: actions/checkout@v2
         with:
-          arguments: -c=horusec-config.json -p ./
+          fetch-depth: 0
+
+      - name: Create Horusec Configuration
+        run: |
+          echo '{}' > horusec-config.json
+          # overwrite old config if it exists.
+
+      - name: Running Horusec Security
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest
+          horusec start -p . -D -o="json" -O="./horusec-results.json"
+    
+      - name: Upload Horusec Results
+        uses: actions/upload-artifact@v2
+        with:
+          name: horusec-results
+          path: horusec-results.json
+          
+      - name: Check for vulnerabilities
+        id: check_vulnerabilities
+        run: |
+          if [ -s horusec-results.json ]; then
+            VULNS_FOUND=$(jq '.analysisVulnerabilities | length' horusec-results.json)
+            if [ "$VULNS_FOUND" -gt "0" ]; then
+              echo "::error ::Vulnerabilities found"
+              exit 1
+            else
+              echo "No vulnerabilities found"
+            fi
+          else
+            echo "::error ::horusec-results.json not found or is empty"
+            exit 1
+          fi
 ```          
 
-Commit this and push it back up to GitHub.
+This action checks out code, blows away any old configs present from previous runs, installs horusec and runs it against the repository. Next it outputs a json file and uploads it to github as an artifact.Following this it then runs a check to see if that file is zero or not. If its not zero the action fails (this is needed for branch protection gating which we discussed earlier). After the process completes, you can download the artifact from the action workflow status page to review.
 
-Once the workflow has finished executing, we can then drill into the results. You'll see that we also have a lot of other security findings. We'll revist these later in the SAST section of this workshop. For now though, we can drill down into the findings and see that Horusec has also found the `.pem` keyfile:
+So, once the workflow has finished executing, we can then drill into the results. You'll see that we also have a lot of other security findings. We'll revist these later in the SAST section of this workshop. For now though, we can drill down into the findings and see that Horusec has also found the `.pem` keyfile:
 
 ```console
 
