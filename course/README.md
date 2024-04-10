@@ -335,7 +335,7 @@ https://github.com/ZupIT/horusec
 
 Let's try a quick experiment using the Action from the [market place](https://github.com/marketplace/actions/horusec).
 
-We have a YAML file located at `.github/workflows/horusec`. Rename this to `.github/workflows/horusec.yml`. Commit and push the change. 
+We have a YAML file located at `.github/workflows/horusec_container_action`. Rename this to `.github/workflows/horusec_container_action.yml`. Commit and push the change. 
 
 
 This file contains the following config:
