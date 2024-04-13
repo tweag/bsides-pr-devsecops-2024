@@ -14,29 +14,34 @@ Account setup and tool installation
 
 To start with, make sure you have a GitHub account: https://www.github.com
 
-Also ensure that Git is installed locally on your machine:
+Also, ensure that Git is installed locally on your machine:
 
 https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+> On Windows accept the default setting, but change the default editor to use VS Code, unless you're comfortable with the default
 
-Next setup an SSH keys:
+Next, set an SSH key (On Windows, we recommend using git-bash):
 
 Generate a new SSH key pair on your local machine if you don't have one
-> ssh-keygen -t ed25519 -C "your_email@example.com"
+> ssh-keygen -t ed25519 -C "your_email@example.com"  # Create your key
+> eval $(ssh-agent -s)                               # Ensure ssh-agent is running
+> ssh-add ~/.ssh/id_rsa                              # Add your private SSH key to the authentication agent
 
-Copy the public key file (e.g. id_ed25519.pub) to your clipboard
-> clip < ~/.ssh/id_ed25519.pub    # On Windows
+Copy the public key file (e.g., id_ed25519.pub) to your clipboard
+> clip   ~/.ssh/id_ed25519.pub    # On Windows
+> cat ~/.ssh/id_rsa.pub           # On Windows if using git-bash
 > pbcopy < ~/.ssh/id_ed25519.pub  # On macOS
 > cat ~/.ssh/id_ed25519.pub       # On Linux, then manually copy
 
-Login to your GitHub account and goto:
+Login to your GitHub account and go to:
 A. Settings -> Access -> SSH & GPG keys -> New SSH key
 B. Enter a title for the key, then paste the public key we generated in step 2.
 
-We will use a number of tools during the workshop, so you can install these in advance.
+We will use several tools during the workshop so that you can install these in advance.
 
 Recommended IDE: VS Code https://code.visualstudio.com/
 
 Docker: https://www.docker.com/get-started/
+> Note that Docker is required for Horusec's VS Code plugin
 
 Horusec plugin for VS Code: https://docs.horusec.io/docs/extensions/visual-studio-code/
 
