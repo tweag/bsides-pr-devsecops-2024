@@ -1,6 +1,8 @@
 
 # Introduction to DevSecOps
 
+THis repository is now a public archive. Feel free to use the content for your own courses.
+
 The following repository contains training material on DevSecOps.
 
 This workshop is held at BSides PR  on Aril 13th at 10am. The workshop runs for approximatley 2 hours. 
